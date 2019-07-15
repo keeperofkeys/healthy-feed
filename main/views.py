@@ -2,7 +2,7 @@ from django.template.response import TemplateResponse
 
 from feedparser import parse
 
-from settings import FEEDS
+from feeds.settings import FEEDS
 
 
 def homepage(request):
@@ -19,4 +19,4 @@ def homepage(request):
         'items': items
     }
 
-    return TemplateResponse(request, 'home.html', context=context)
+    return TemplateResponse(request, 'main/home.html', context=context)
