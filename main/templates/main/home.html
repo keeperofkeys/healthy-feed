@@ -1,8 +1,14 @@
 
 
-<ul>
+<table>
     {% for item in items %}
-    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    <tr>
+        <td>{{ item.date|date:"d/m/y H:m" }}</td>
+        <td>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+        </td>
+        <td>({{ item.source }})</td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 

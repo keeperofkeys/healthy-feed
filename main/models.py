@@ -5,8 +5,8 @@ from django.db import models
 
 
 class NewsItem(models.Model):
-    class META:
-        ordering = '-date'
+    class Meta:
+        ordering = ('-date',)
 
     title = models.TextField(blank=False)
     url = models.CharField(blank=False, max_length=1024, unique=True)

@@ -121,5 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 FEEDS = [
-    'https://www.theguardian.com/uk/rss',
+    ('Guardian', 'https://www.theguardian.com/uk/rss'),
+    ('Daily Mail', 'https://www.dailymail.co.uk/home/index.rss'),
+    ('Independent', 'https://www.independent.co.uk/rss'),
 ]

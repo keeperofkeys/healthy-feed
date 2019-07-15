@@ -7,9 +7,6 @@ from main.models import NewsItem
 
 
 def import_feeds():
-    import pdb
-    pdb.set_trace()
-
     count = 0
 
     for feed in FEEDS:
