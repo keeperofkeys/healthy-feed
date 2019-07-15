@@ -6,8 +6,9 @@
         <td>{{ item.date|date:"d/m/y H:m" }}</td>
         <td>
             <a href="{{ item.url }}">{{ item.title }}</a>
+            <small>({{ item.source }})</small>
         </td>
-        <td>({{ item.source }})</td>
+        <td>{{ item.summary|safe }}</td>
     </tr>
     {% endfor %}
 </table>

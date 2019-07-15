@@ -6,6 +6,12 @@ from settings import FEEDS
 from main.models import NewsItem
 
 
+def __handle_feed_key__(entry, key):
+    try:
+        return entry[key]
+    except KeyError:
+        return 'unknown'
+
 def import_feeds():
     count = 0
 
@@ -22,8 +28,9 @@ def import_feeds():
             if new_entry:
                 news_item.title = entry['title']
                 news_item.date = datetime.strptime(entry['published'], '%a, %d %b %Y %H:%M:%S %Z')
-                news_item.author = entry['author']
+                news_item.author = __handle_feed_key__(entry, 'author')
                 news_item.source = source
+                news_item.summary = __handle_feed_key__(entry, 'description')
                 news_item.save()
 
                 count += 1

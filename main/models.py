@@ -13,6 +13,7 @@ class NewsItem(models.Model):
     date = models.DateTimeField(null=True)
     author = models.CharField(blank=True, max_length=255)
     source = models.CharField(blank=True, max_length=100)
+    summary = models.TextField(blank=True)
 
     def __string__(self):
         return self.title
