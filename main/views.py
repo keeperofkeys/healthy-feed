@@ -3,9 +3,10 @@ from django.template.response import TemplateResponse
 from feedparser import parse
 
 from feeds.settings import FEEDS
+from models import NewsItem
 
 
-def homepage(request):
+def live_feed(request):
     items = []
 
     # import pdb
@@ -17,6 +18,15 @@ def homepage(request):
 
     context = {
         'items': items
+    }
+
+    return TemplateResponse(request, 'main/home.html', context=context)
+
+
+def homepage(request):
+
+    context = {
+        'items': NewsItem.objects.all()
     }
 
     return TemplateResponse(request, 'main/home.html', context=context)

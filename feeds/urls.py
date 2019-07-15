@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from main.views import homepage
+from main.views import homepage, live_feed
 
 urlpatterns = [
     url(r'', homepage),
+    url(r'^live/', live_feed),
     url(r'^admin/', admin.site.urls),
 ]
