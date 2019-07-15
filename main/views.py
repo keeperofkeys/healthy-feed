@@ -9,9 +9,6 @@ from models import NewsItem
 def live_feed(request):
     items = []
 
-    # import pdb
-    # pdb.set_trace()
-
     for feed in FEEDS:
         feed_data = parse(feed)
         items.extend(feed_data['entries'])

@@ -125,3 +125,4 @@ FEEDS = [
     ('Daily Mail', 'https://www.dailymail.co.uk/home/index.rss'),
     ('Independent', 'https://www.independent.co.uk/rss'),
 ]
+
