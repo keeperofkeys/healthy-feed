@@ -24,7 +24,7 @@ def live_feed(request):
 
 def homepage(request):
     context = {
-        'items': NewsItem.objects.all(),
+        'items': NewsItem.objects.all()[:50],
         'IS_ADMIN': True
     }
 
