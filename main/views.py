@@ -1,4 +1,6 @@
 from django.template.response import TemplateResponse
+from django.http import HttpResponse
+
 
 from feedparser import parse
 
@@ -21,9 +23,16 @@ def live_feed(request):
 
 
 def homepage(request):
-
     context = {
-        'items': NewsItem.objects.all()
+        'items': NewsItem.objects.all(),
+        'IS_ADMIN': True
     }
 
     return TemplateResponse(request, 'main/home.html', context=context)
+
+
+def kill_story(request):
+    story_url = request.POST['storyUrl']
+    NewsItem.objects.get(url=story_url).delete()
+
+    return HttpResponse('')

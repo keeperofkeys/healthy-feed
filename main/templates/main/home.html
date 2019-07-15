@@ -3,8 +3,13 @@
 <table>
     {% for item in items %}
     <tr>
-        <td>{{ item.date|date:"d/m/y H:m" }}</td>
-        <td>
+        <td class="date">{{ item.date|date:"d/m/y H:m" }}</td>
+        {% if IS_ADMIN %}
+        <td><button class="killButton">
+            KILL
+        </button></td>
+        {% endif %}
+        <td class="link">
             <a href="{{ item.url }}">{{ item.title }}</a>
             <small>({{ item.source }})</small>
         </td>
@@ -12,4 +17,30 @@
     </tr>
     {% endfor %}
 </table>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+        $('table').on('click', '.killButton', function () {
+            var $row = $(this).closest('tr'),
+                href = $row.find('.link a').attr('href');
+            $.ajax({
+                type: 'post',
+                url: '/kill-story/',
+                data: {
+                    storyUrl: href
+                },
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                error: function(resp) {
+                    alert('failed!')
+                },
+                success: function(resp) {
+                    console.log('deleted ' + href);
+                    $row.remove();
+                }
+            })
+        });
+
+</script>
 

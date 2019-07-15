@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from main.views import homepage, live_feed
+from main.views import homepage, live_feed, kill_story
 
 urlpatterns = [
     url(r'^$', homepage),
     url(r'^live/', live_feed),
+    url(r'^kill-story/', kill_story),
     url(r'^admin/', admin.site.urls),
 ]
