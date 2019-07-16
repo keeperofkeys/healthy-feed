@@ -35,8 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_comments_xtd',
+    'django_comments',
     'main',
 ]
 
@@ -126,3 +129,8 @@ FEEDS = [
     ('Independent', 'https://www.independent.co.uk/rss'),
 ]
 
+SITE_ID = '667'
+
+COMMENTS_APP = 'django_comments_xtd'
+COMMENTS_XTD_MAX_THREAD_LEVEL = 10
+COMMENTS_XTD_CONFIRM_MAIL = False
