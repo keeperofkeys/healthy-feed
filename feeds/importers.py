@@ -1,4 +1,5 @@
 from datetime import datetime
+from dateutil.parser import parse as parse_date
 
 from feedparser import parse
 
@@ -27,7 +28,7 @@ def import_feeds():
 
             if new_entry:
                 news_item.title = entry['title']
-                news_item.date = datetime.strptime(entry['published'], '%a, %d %b %Y %H:%M:%S %Z')
+                news_item.date = parse_date(entry['published'], ignoretz=True)
                 news_item.author = __handle_feed_key__(entry, 'author')
                 news_item.source = source
                 news_item.summary = __handle_feed_key__(entry, 'description')

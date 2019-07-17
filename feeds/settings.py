@@ -128,6 +128,8 @@ FEEDS = [
     ('Guardian', 'https://www.theguardian.com/uk/rss'),
     ('Daily Mail', 'https://www.dailymail.co.uk/home/index.rss'),
     ('Independent', 'https://www.independent.co.uk/rss'),
+    ('Breitbart', 'https://feeds.feedburner.com/breitbart'),
+
 ]
 
 SITE_ID = '667'
