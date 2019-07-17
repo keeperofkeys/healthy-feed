@@ -15,6 +15,9 @@
                 <a href="/?provider={{ provider }}">{{ provider }}</a>
             </li>
             {% endfor %}
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
         </ul>
 
         {% if user.is_authenticated %}

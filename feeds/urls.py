@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from main.views import homepage, live_feed, kill_story, show_post
 
@@ -23,6 +24,7 @@ urlpatterns = [
     url(r'^live/', live_feed),
     url(r'^posts/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/(?P<slug>.+)/', show_post),
     url(r'^kill-story/', kill_story),
+    url(r'^about/', TemplateView.as_view(template_name="main/about.html"), name='about'),
     url(r'^admin/', admin.site.urls),
     url(r'^comments/', include('django_comments_xtd.urls')),
     url(r'^auth/', include('django.contrib.auth.urls')),
