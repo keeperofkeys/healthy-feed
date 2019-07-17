@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_comments_xtd',
     'django_comments',
+    'django_extensions',
     'main',
 ]
 
@@ -129,7 +130,9 @@ FEEDS = [
     ('Daily Mail', 'https://www.dailymail.co.uk/home/index.rss'),
     ('Independent', 'https://www.independent.co.uk/rss'),
     ('Breitbart', 'https://feeds.feedburner.com/breitbart'),
-
+    ('Reuters', 'https://uk.reuters.com/tools/rss'),
+    ('BBC', 'http://feeds.bbci.co.uk/news/rss.xml'),
+    ('Anarchist News', 'https://anarchistnews.org/rss.xml'),
 ]
 
 SITE_ID = '667'
