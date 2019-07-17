@@ -1,5 +1,6 @@
 {% load comments %}
 
+{% block content %}
 <table>
     {% for item in items %}
     <tr>
@@ -19,8 +20,17 @@
         {% get_comment_count for item as comment_count %}
 
         <td colspan="4">{{ comment_count }} comment{{ comment_count|pluralize }}
-          ha{{ comment_count|pluralize:"s,ve" }} been posted.</td>
+          ha{{ comment_count|pluralize:"s,ve" }} been posted.
 
+
+            {% if comment_count %}
+                <div class="comments">
+                  {% render_comment_list for item %}
+                </div>
+            {% endif %}
+
+            {% render_comment_form for item %}
+        </td>
     </tr>
     {% endfor %}
 </table>
@@ -50,4 +60,4 @@
         });
 
 </script>
-
+{% endblock %}
