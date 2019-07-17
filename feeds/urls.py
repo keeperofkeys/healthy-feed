@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^kill-story/', kill_story),
     url(r'^admin/', admin.site.urls),
     url(r'^comments/', include('django_comments_xtd.urls')),
+    url(r'^auth/', include('django.contrib.auth.urls')),
 ]

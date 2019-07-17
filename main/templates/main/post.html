@@ -12,7 +12,15 @@
 
     {% get_comment_count for item as comment_count %}
 
-    {% render_comment_form for item %}
+    {% if user.is_authenticated %}
+
+        {% render_comment_form for item %}
+
+    {% else %}
+
+        <p><a href="{% url 'login' %}?next={{ request.path }}">Log in</a> to comment</p>
+
+    {% endif %}
 
     {% if comment_count %}
         <div class="comments">
