@@ -3,10 +3,16 @@
     <head></head>
     <body>
     <menu>
+        <h2>News sources:</h2>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="/">All</a>
             </li>
+            {% for provider in providers %}
+            <li>
+                <a href="/?provider={{ provider }}">{{ provider }}</a>
+            </li>
+            {% endfor %}
         </ul>
     </menu>
     {% block content %}{% endblock %}

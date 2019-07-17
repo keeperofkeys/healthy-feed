@@ -11,8 +11,12 @@ from models import NewsItem
 
 
 def homepage(request):
+    items = NewsItem.objects.all()
+    if 'provider' in request.GET.keys():
+        items = items.filter(source=request.GET['provider'])
+
     context = {
-        'items': NewsItem.objects.all()[:50],
+        'items': items[:50],
         'IS_ADMIN': True
     }
 
