@@ -16,6 +16,12 @@
             </li>
             {% endfor %}
         </ul>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}?next=/">Log out</a>
+        {% else %}
+            <a href="{% url 'login' %}?next={{ request.path }}">Log in</a>
+        {% endif %}
     </menu>
     {% block content %}{% endblock %}
     </body>
