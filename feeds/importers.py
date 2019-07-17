@@ -13,6 +13,7 @@ def __handle_feed_key__(entry, key):
     except KeyError:
         return 'unknown'
 
+
 def import_feeds():
     count = 0
 
