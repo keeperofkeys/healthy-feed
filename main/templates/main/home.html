@@ -19,17 +19,9 @@
     <tr>
         {% get_comment_count for item as comment_count %}
 
-        <td colspan="4">{{ comment_count }} comment{{ comment_count|pluralize }}
-          ha{{ comment_count|pluralize:"s,ve" }} been posted.
-
-
-            {% if comment_count %}
-                <div class="comments">
-                  {% render_comment_list for item %}
-                </div>
-            {% endif %}
-
-            {% render_comment_form for item %}
+        <td colspan="4">
+            <a href="{{ item.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}
+                ha{{ comment_count|pluralize:"s,ve" }} been posted.</a>
         </td>
     </tr>
     {% endfor %}
