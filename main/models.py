@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.text import slugify
 
 
 class NewsItem(models.Model):
@@ -14,7 +15,16 @@ class NewsItem(models.Model):
     author = models.CharField(blank=True, max_length=255)
     source = models.CharField(blank=True, max_length=100)
     summary = models.TextField(blank=True)
+    slug = models.CharField(blank=True, max_length=100)
 
-    def __string__(self):
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.slug = slugify(self.title)
+        super(NewsItem, self).save()
+
+    def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return '/posts/{year}/{month}/{day}/{slug}'.format(year=self.date.year, month=self.date.month, day=self.date.day, slug=self.slug)
 
