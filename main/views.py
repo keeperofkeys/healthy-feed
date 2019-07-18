@@ -34,6 +34,19 @@ def show_post(request, year, month, day, slug):
     return TemplateResponse(request, 'main/post.html', context=context)
 
 
+def site_search(request):
+    terms = request.GET['p'].split(' ')
+    results = NewsItem.objects.all()
+    for term in terms:
+        results = results.filter(title__contains=term.lower())
+
+    context = {
+        'items': results
+    }
+
+    return TemplateResponse(request, 'main/home.html', context=context)
+
+
 def kill_story(request):
     story_url = request.POST['storyUrl']
     NewsItem.objects.get(url=story_url).delete()

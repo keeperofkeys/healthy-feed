@@ -17,11 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from main.views import homepage, live_feed, kill_story, show_post
+from main.views import homepage, live_feed, kill_story, show_post, site_search
 
 urlpatterns = [
     url(r'^$', homepage),
     url(r'^live/', live_feed),
+    url(r'^search/', site_search, name='search'),
     url(r'^posts/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/(?P<slug>.+)/', show_post),
     url(r'^kill-story/', kill_story),
     url(r'^about/', TemplateView.as_view(template_name="main/about.html"), name='about'),

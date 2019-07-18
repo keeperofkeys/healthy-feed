@@ -20,6 +20,9 @@
             </li>
         </ul>
 
+        <form method="get" action="{% url 'search' %}">
+            <input placeholder="Search" type="text" name="p"/>
+        </form>
         {% if user.is_authenticated %}
             <a href="{% url 'logout' %}?next=/">Log out</a>
         {% else %}
