@@ -133,6 +133,10 @@ FEEDS = [
     ('Reuters', 'https://uk.reuters.com/tools/rss'),
     ('BBC', 'http://feeds.bbci.co.uk/news/rss.xml'),
     ('Anarchist News', 'https://anarchistnews.org/rss.xml'),
+    ('Telegraph', 'http://www.telegraph.co.uk/newsfeed/rss/news_main.xml'),
+    ('The Sun', 'https://www.thesun.co.uk/feed/'),
+    ('Huffington Post', 'https://www.huffingtonpost.co.uk/rss/index.xml'),
+    ('New European', 'https://www.theneweuropean.co.uk/cmlink/the-new-european-latest-news-1-4999786'),
 ]
 
 SITE_ID = '667'
