@@ -13,7 +13,7 @@
         </button></td>
         {% endif %}
         <td class="link">
-            <a href="{{ item.url }}">{{ item.title }}</a>
+            {{ item.title }}
             <small>({{ item.source }})</small>
         </td>
         <td>{{ item.summary|safe }}</td>
@@ -21,10 +21,16 @@
     <tr>
         {% get_comment_count for item as comment_count %}
 
-        <td colspan="4">
-            <a href="{{ item.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}
-                ha{{ comment_count|pluralize:"s,ve" }} been posted.</a>
+        <td>
+            <a href="{{ item.url }}" target="_blank">Article</a>
         </td>
+        <td colspan="3">
+            <a href="{{ item.get_absolute_url }}">Comments ({{ comment_count }})</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+    <td colspan="4">No results</td>
     </tr>
     {% endfor %}
 </table>
