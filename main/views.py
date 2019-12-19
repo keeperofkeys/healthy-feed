@@ -47,7 +47,7 @@ def site_search(request):
     return TemplateResponse(request, 'main/home.html', context=context)
 
 
-def kill_story(request):
+def kill_story(request):  # brutal: removes story from db immediately
     story_url = request.POST['storyUrl']
     NewsItem.objects.get(url=story_url).delete()
 
