@@ -8,12 +8,17 @@ from feedparser import parse
 
 from feeds.settings import FEEDS
 from models import NewsItem
+from django_comments.models import Comment
 
 
 def homepage(request):
     items = NewsItem.objects.all()
     if 'provider' in request.GET.keys():
         items = items.filter(source=request.GET['provider'])
+
+    if 'comments' in request.GET.keys():
+        ids = [c.object_pk for c in Comment.objects.all()]
+        items = items.filter(pk__in=ids)
 
     context = {
         'items': items[:50],
