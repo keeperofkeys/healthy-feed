@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 
 
@@ -26,5 +27,10 @@ class NewsItem(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return '/posts/{year}/{month}/{day}/{slug}'.format(year=self.date.year, month=self.date.month, day=self.date.day, slug=self.slug)
+        return reverse('story-comments', kwargs={
+            'year':self.date.year,
+            'month':self.date.month,
+            'day': self.date.day,
+            'slug': self.slug})
+
 

@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^$', homepage),
     url(r'^live/', live_feed),
     url(r'^search/', site_search, name='search'),
-    url(r'^posts/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/(?P<slug>.+)/', show_post),
+    url(r'^posts/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/(?P<slug>.+)/', show_post, name='story-comments'),
     url(r'^kill-story/', kill_story),
     url(r'^about/', TemplateView.as_view(template_name="main/about.html"), name='about'),
     url(r'^admin/', admin.site.urls),
