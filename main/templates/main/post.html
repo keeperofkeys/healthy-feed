@@ -2,9 +2,11 @@
 
 {% load comments %}
 
+{% block page_title %}Discussion of {{ item.title }} on {{ item.source }}{% endblock %}
+
 {% block content %}
 
-    <h1><a href="{{ item.url }}" target="_blank">{{ item.title }}</a></h1>
+    <h1><a href="{{ item.url }}" target="_blank">{{ item.source }}: {{ item.title }}</a></h1>
 
     <div>
     {{ item.summary|safe }}
