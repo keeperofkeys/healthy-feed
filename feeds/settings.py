@@ -12,6 +12,22 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+project_dirname = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+asset_dirname = 'assets'
+
+
+def project_path(*args):
+    """ Gets a path relative to the project's root directory. """
+
+    return os.path.join(project_dirname, *args)
+
+
+def asset_path(*args):
+    """ Gets a path under the project's assets directory. """
+
+    return os.path.join(project_path(asset_dirname), *args)
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -124,6 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = asset_path('static')
 
 FEEDS = [
     ('Guardian', 'https://www.theguardian.com/uk/rss'),
